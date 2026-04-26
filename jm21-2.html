@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 21 Irrefutable Laws — John Maxwell</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --black: #0F1214;
+  --charcoal: #181C20;
+  --dark: #1E2428;
+  --mid: #2C3540;
+  --rule: #2E3840;
+  --dim: #526270;
+  --muted: #8A9EAA;
+  --light: #B8C8D0;
+  --white: #EDF0F2;
+  --accent: #C96830;
+  --accent-soft: rgba(201,104,48,0.12);
+}
+html { scroll-behavior: smooth; }
+body { background: var(--black); color: var(--white); font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 48px;
+  background: linear-gradient(to bottom, rgba(15,18,20,0.97) 0%, rgba(15,18,20,0) 100%);
+}
+.nav-logo { font-family: 'UnifrakturCook', cursive; font-size: 26px; color: var(--white); text-decoration: none; letter-spacing: 2px; }
+.nav-back { font-size: 10px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); text-decoration: none; transition: color 0.2s; display: flex; align-items: center; gap: 8px; }
+.nav-back:hover { color: var(--white); }
+.nav-back::before { content: '←'; font-size: 12px; }
+
+.hero {
+  min-height: 100vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center;
+  padding: 120px 24px 80px; position: relative; overflow: hidden;
+  background: var(--black);
+}
+.parallax-orb-1 {
+  position: absolute; width: 700px; height: 700px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,104,48,0.13) 0%, transparent 70%);
+  top: 10%; left: 50%; transform: translateX(-50%);
+  pointer-events: none; will-change: transform;
+}
+.parallax-orb-2 {
+  position: absolute; width: 400px; height: 400px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,104,48,0.08) 0%, transparent 70%);
+  top: 5%; right: 5%; pointer-events: none; will-change: transform;
+}
+.parallax-orb-3 {
+  position: absolute; width: 350px; height: 350px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,104,48,0.06) 0%, transparent 70%);
+  bottom: 15%; left: 5%; pointer-events: none; will-change: transform;
+}
+.parallax-grid {
+  position: absolute; inset: -10%; width: 120%; height: 120%;
+  pointer-events: none; will-change: transform;
+  background-image:
+    linear-gradient(rgba(201,104,48,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,104,48,0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+.hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(to right, transparent, var(--rule), transparent); }
+.hero-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--accent); margin-bottom: 28px; display: flex; align-items: center; gap: 16px; }
+.hero-eyebrow::before, .hero-eyebrow::after { content: ''; display: block; width: 48px; height: 0.5px; background: var(--accent); opacity: 0.4; }
+.hero-number { font-family: 'Cormorant Garamond', serif; font-size: clamp(120px, 22vw, 220px); font-weight: 300; color: var(--accent); line-height: 0.85; opacity: 0.05; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; user-select: none; }
+.hero-inner {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; will-change: transform;
+}
+.hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(64px, 11vw, 120px); font-weight: 400; color: var(--white); line-height: 1.05; letter-spacing: 0.02em; position: relative; z-index: 1; animation: fadeUp 0.9s ease both; }
+.hero-title em { font-style: italic; color: var(--muted); }
+.hero-author { font-size: 15px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-top: 24px; animation: fadeUp 0.9s 0.1s ease both; }
+.hero-desc { font-size: 17px; color: var(--dim); max-width: 600px; line-height: 1.85; margin-top: 28px; letter-spacing: 0.03em; animation: fadeUp 0.9s 0.2s ease both; }
+.hero-credit { font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); margin-top: 20px; opacity: 0.5; animation: fadeUp 0.9s 0.35s ease both; }
+.hero-scroll { margin-top: 52px; display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--dim); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; animation: fadeUp 0.9s 0.5s ease both; }
+.scroll-line { width: 0.5px; height: 36px; background: linear-gradient(to bottom, var(--dim), transparent); animation: pulse 2s ease infinite; }
+
+.laws-section { padding: 100px 48px; max-width: 1200px; margin: 0 auto; }
+.laws-header { text-align: center; margin-bottom: 72px; }
+.laws-header h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 56px); font-weight: 400; color: var(--white); }
+.laws-header p { font-size: 15px; color: var(--dim); margin-top: 12px; letter-spacing: 0.06em; }
+.laws-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+
+.law-card { background: var(--charcoal); padding: 36px 32px; position: relative; overflow: hidden; transition: background 0.3s; cursor: default; }
+.law-card:hover { background: var(--dark); }
+.law-card:hover .law-title { color: var(--accent); }
+.law-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1.5px; background: linear-gradient(to right, var(--accent), transparent); opacity: 0; transition: opacity 0.3s; }
+.law-card:hover::before { opacity: 1; }
+.law-num { font-family: 'Cormorant Garamond', serif; font-size: 64px; font-weight: 300; position: absolute; top: 16px; right: 24px; opacity: 0.05; line-height: 1; pointer-events: none; color: var(--accent); transition: opacity 0.3s; }
+.law-card:hover .law-num { opacity: 0.14; }
+.law-index { font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; opacity: 0.8; }
+.law-title { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 500; color: var(--white); line-height: 1.2; margin-bottom: 14px; transition: color 0.3s; text-decoration: underline; text-underline-offset: 5px; text-decoration-color: rgba(237,240,242,0.3); }
+.law-subtitle { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); margin-bottom: 14px; }
+.law-desc { font-size: 14px; color: var(--dim); line-height: 1.75; }
+
+.quote-section { padding: 100px 48px; border-top: 0.5px solid var(--rule); border-bottom: 0.5px solid var(--rule); background: var(--charcoal); text-align: center; }
+.quote-inner { max-width: 860px; margin: 0 auto; }
+.quote-mark { font-family: 'Cormorant Garamond', serif; font-size: 100px; line-height: 0.5; color: var(--accent); opacity: 0.3; margin-bottom: 24px; display: block; }
+.quote-text { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 4vw, 48px); font-weight: 300; color: var(--white); line-height: 1.55; letter-spacing: 0.01em; font-style: italic; }
+.quote-attr { margin-top: 32px; font-size: 13px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); opacity: 0.8; }
+
+footer { padding: 48px; display: flex; align-items: center; justify-content: space-between; border-top: 0.5px solid var(--rule); }
+.footer-logo { font-family: 'UnifrakturCook', cursive; font-size: 26px; color: var(--dim); }
+.footer-copy { font-size: 12px; color: var(--dim); letter-spacing: 0.1em; text-transform: uppercase; }
+.footer-kin { font-size: 12px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--dim); }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  .laws-section { padding: 60px 20px; }
+  .laws-grid { grid-template-columns: 1fr; }
+  .law-card { padding: 28px 24px; }
+  footer { flex-direction: column; gap: 16px; text-align: center; padding: 40px 24px; }
+  .quote-section { padding: 60px 24px; }
+}
+@media (max-width: 1100px) and (min-width: 901px) { .laws-grid { grid-template-columns: repeat(2, 1fr); } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">DBD</a>
+  <a href="/" class="nav-back">Back to DBD</a>
+</nav>
+
+<section class="hero">
+  <div class="parallax-grid" data-parallax="0.15"></div>
+  <div class="parallax-orb-1" data-parallax="0.3"></div>
+  <div class="parallax-orb-2" data-parallax="0.5"></div>
+  <div class="parallax-orb-3" data-parallax="0.2"></div>
+  <div class="hero-inner">
+    <div class="hero-number">21</div>
+    <div class="hero-eyebrow">Leadership · John Maxwell</div>
+    <h1 class="hero-title">The 21 Irrefutable<br><em>Laws of Leadership</em></h1>
+    <div class="hero-author">John C. Maxwell</div>
+    <p class="hero-desc">Foundational principles for becoming a leader of influence — built on character, trust, and the relentless development of yourself and others.</p>
+    <div class="hero-scroll"><div class="scroll-line"></div>Explore the Laws</div>
+  </div>
+</section>
+
+<section class="laws-section">
+  <div class="laws-header reveal"><h2>The 21 Laws</h2><p>Follow them and people will follow you.</p></div>
+  <div class="laws-grid">
+
+    <div class="law-card reveal"><div class="law-num">1</div><div class="law-index">Law 01</div><div class="law-title">The Law of the Lid</div><div class="law-subtitle">Leadership ability = your ceiling</div><div class="law-desc">Leadership ability determines a person's level of effectiveness. The lower your ability to lead, the lower the lid on your potential.</div></div>
+
+    <div class="law-card reveal"><div class="law-num">2</div><div class="law-index">Law 02</div><div class="law-title">The Law of Influence</div><div class="law-subtitle">Nothing more, nothing less</div><div class="law-desc">The true measure of leadership is influence. Leaders must inspire and motivate others — title alone means nothing.</div></div>
+
+    <div class="law-card reveal"><div class="law-num">3</div><div class="law-index">Law 03</div><div class="law-title">The Law of Process</div><div class="law-subtitle">Daily, not in a day</div><div class="law-desc">Leadership develops daily, not in a day. It is a lifelong process that requires continual improvement and disciplined growth over time.</div></div>
+
+    <div class="law-card reveal"><div class="law-num">4</div><div class="law-index">Law 04</div><div class="law-title">The Law of Navigation</div><div class="law-subtitle">Chart the course</div><div class="law-desc">Anyone can steer the ship, but it takes a leader to chart the course. Leaders plan ahead and navigate obstacles before they arise.</div></div>
+
+    <div class="law-card reveal"><div class="law-num">5</div><div class="law-index">Law 05</div><div class="law-title">The Law of Addition</div><div class="law-subtitle">Serve to lead</div><div class="law-desc">Leaders add value by serving others. The best leaders focus on helping those they lead grow, succeed, and reach their full potential.</div></div>
+
+    <div class="law-card reveal"><div class="law-num">6</div><div class="law-index">Law 06</div><div class="law-title">The Law of Solid Ground</div><div class="law-subtitle">Trust is the foundation</div><div class="law-desc">Trust is the foundation of all leadership. A leader must demonstrate consistent integrity to earn — and keep — the trust of others.</div></div>
+
+    <div class="law-card reveal"><div class="law-num">7</div><div class="law-index">Law 07</div><div class="law-title">The Law of Respect</div><div class="law-subtitle">Earned, never given</div><div class="law-desc">People naturally follow leaders stronger than themselves. Respect is earned through actions, character, and consistent demonstration of ability.</div></div>
+
+    <div class="law-card reveal"><div class="law-num">8</div><div class="law-index">Law 08</div><div class="law-title">The Law of Intuition</div><div class="law-subtitle">Read the room</div><div class="law-desc">Leaders evaluate everything with a leadership bias. They develop a keen instinct for reading people, situations, and the dynamics of a room.</div></div>
+
+    <div class="law-card reveal"><div class="law-num">9</div><div class="law-index">Law 09</div><div class="law-title">The Law of Magnetism</div><div class="law-subtitle">You attract who you are</div><div class="law-desc">Who you are is who you attract. Leaders draw others who share similar values, attitudes, and characteristics — for better or worse.</div></div>
+
+    <div class="law-card reveal"><div class="law-num">10</div><div class="law-index">Law 10</div><div class="law-title">The Law of Connection</div><div class="law-subtitle">Heart before hand</div><div class="law-desc">Leaders touch a heart before they ask for a hand. Building genuine relationships is the foundation of moving people toward any vision.</div></div>
+
+    <div class="law-card reveal"><div class="law-num">11</div><div class="law-index">Law 11</div><div class="law-title">The Law of the Inner Circle</div><div class="law-subtitle">Your circle defines your ceiling</div><div class="law-desc">A leader's potential is determined by those closest to them. Surrounding yourself with the right people is one of the most critical decisions you'll make.</div></div>
+
+    <div class="law-card reveal"><div class="law-num">12</div><div class="law-index">Law 12</div><div class="law-title">The Law of Empowerment</div><div class="law-subtitle">Secure leaders give power away</div><div class="law-desc">Only secure leaders give power to others. Empowering your team creates a more capable organization — and reflects true confidence in your leadership.</div></div>
+
+    <div class="law-card reveal"><div class="law-num">13</div><div class="law-index">Law 13</div><div class="law-title">The Law of the Picture</div><div class="law-subtitle">They see before they follow</div><div class="law-desc">People do what people see. Leaders must model the behavior, work ethic, and character they expect from those they lead — every single day.</div></div>
+
+    <div class="law-card reveal"><div class="law-num">14</div><div class="law-index">Law 14</div><div class="law-title">The Law of Buy-In</div><div class="law-subtitle">Leader first, vision second</div><div class="law-desc">People buy into the leader before they buy into the vision. Earn trust and loyalty first — then lead people toward what matters.</div></div>
+
+    <div class="law-card reveal"><div class="law-num">15</div><div class="law-index">Law 15</div><div class="law-title">The Law of Victory</div><div class="law-subtitle">Find a way to win</div><div class="law-desc">Leaders find a way for the team to win. True leadership isn't about personal glory — it's about delivering results and making others successful.</div></div>
+
+    <div class="law-card reveal"><div class="law-num">16</div><div class="law-index">Law 16</div><div class="law-title">The Law of the Big Mo</div><div class="law-subtitle">Momentum is your best friend</div><div class="law-desc">Momentum is a leader's best friend. Great leaders create and protect momentum — because once it's lost, it takes far more energy to rebuild it.</div></div>
+
+    <div class="law-card reveal"><div class="law-num">17</div><div class="law-index">Law 17</div><div class="law-title">The Law of Priorities</div><div class="law-subtitle">Activity ≠ accomplishment</div><div class="law-desc">Leaders understand that activity is not necessarily accomplishment. Identifying and protecting the highest-value tasks separates great leaders from busy ones.</div></div>
+
+    <div class="law-card reveal"><div class="law-num">18</div><div class="law-index">Law 18</div><div class="law-title">The Law of Sacrifice</div><div class="law-subtitle">Give up to go up</div><div class="law-desc">Growth and success require real sacrifice — comfort, ego, time, and sometimes relationships that no longer serve the mission.</div></div>
+
+    <div class="law-card reveal"><div class="law-num">19</div><div class="law-index">Law 19</div><div class="law-title">The Law of Timing</div><div class="law-subtitle">When matters as much as what</div><div class="law-desc">When to lead is as important as what to do and where to go. The right action at the wrong time still fails. Great leaders read the moment.</div></div>
+
+    <div class="law-card reveal"><div class="law-num">20</div><div class="law-index">Law 20</div><div class="law-title">The Law of Explosive Growth</div><div class="law-subtitle">Lead leaders, not just followers</div><div class="law-desc">To add growth, lead followers. To multiply growth, lead leaders. Developing other leaders creates exponential impact beyond what any single leader can produce.</div></div>
+
+    <div class="law-card reveal"><div class="law-num">21</div><div class="law-index">Law 21</div><div class="law-title">The Law of Legacy</div><div class="law-subtitle">What you leave behind</div><div class="law-desc">A leader's lasting value is measured by succession. The greatest leaders build something that outlasts them — in people, culture, and impact.</div></div>
+
+  </div>
+</section>
+
+<section class="quote-section">
+  <div class="quote-inner">
+    <span class="quote-mark reveal">"</span>
+    <p class="quote-text reveal">A leader is one who knows the way, goes the way, and shows the way.</p>
+    <div class="quote-attr reveal">— John C. Maxwell</div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">DBD</div>
+  <div style="display:flex; flex-direction:column; align-items:center; gap:4px; text-align:center;">
+    <div class="footer-copy">&copy; 2026 Dynasty Leadership Development</div>
+    <div style="font-size:10px; color:var(--dim); letter-spacing:0.1em; text-transform:uppercase;">Created by Taylor Burnett</div>
+  </div>
+  <div class="footer-kin">KIN · Dynasty</div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  var reveals = document.querySelectorAll('.reveal');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+    });
+  }, { threshold: 0.08 });
+  for (var i = 0; i < reveals.length; i++) { observer.observe(reveals[i]); }
+
+  // Parallax
+  var parallaxEls = document.querySelectorAll('[data-parallax]');
+  var heroEl = document.querySelector('.hero');
+  var heroNum = document.querySelector('.hero-number');
+
+  function onScroll() {
+    var scrollY = window.scrollY;
+
+    // Hero parallax layers
+    for (var i = 0; i < parallaxEls.length; i++) {
+      var speed = parseFloat(parallaxEls[i].getAttribute('data-parallax'));
+      var offset = scrollY * speed;
+      parallaxEls[i].style.transform = 'translateY(' + offset + 'px)';
+    }
+
+    // Hero content subtle upward drift
+    var heroInner = document.querySelector('.hero-inner');
+    if (heroInner) {
+      heroInner.style.transform = 'translateY(' + (scrollY * 0.18) + 'px)';
+      heroInner.style.opacity = Math.max(0, 1 - scrollY / 500);
+    }
+
+    // Card subtle depth shift as you scroll past them
+    var cards = document.querySelectorAll('.law-card');
+    cards.forEach(function(card) {
+      var rect = card.getBoundingClientRect();
+      var center = rect.top + rect.height / 2;
+      var distFromCenter = (center - window.innerHeight / 2) / window.innerHeight;
+      var shift = distFromCenter * 6;
+      card.style.transform = 'translateY(' + shift + 'px)';
+    });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+</script>
+</body>
+</html>
